@@ -261,3 +261,94 @@ for (let i = 0; i < dollars.length; i++) {
 }
 
 console.log(centDollar);
+
+/* objects */
+
+let users = [
+  {
+    username: "Tomaseltas",
+    email: "realmadrid.vetstein@gmail.com",
+    password: "test123",
+    subscriptionStatus: "Premium",
+    discordId: "Toks#6345",
+    lessonsCompleted: [0, 1, 4, 12],
+  },
+  {
+    username: "David",
+    email: "realmadrid.david@gmail.com",
+    password: "David123",
+    subscriptionStatus: "Premium",
+    discordId: "David#6345",
+    lessonsCompleted: [0, 1, 4, 11],
+  },
+];
+
+function login(email, password) {
+  for (let i = 0; i < users.length; ++i) {
+    if (users[i].email === email) {
+      console.log(users[i]);
+      if (users[i].password === password) {
+        console.log("Log the user in  the details are correct");
+      } else {
+        console.log("Password is incorrect");
+      }
+      return;
+    }
+  }
+  console.log("Could not find an email that matches");
+}
+
+login("realmadrid1.vetstein@gmail.com", "test123");
+
+/* same operations can work */
+console.log(users[0].lessonsCompleted.map((elem) => elem * 2));
+
+/* exercise */
+
+let user = {};
+
+function register(
+  username,
+  email,
+  password,
+  subscriptionStatus,
+  discordId,
+  lessonsCompleted
+) {
+  user.username = username;
+  user.email = email;
+  user.password = password;
+  user.subscriptionStatus = subscriptionStatus;
+  user.discordId = discordId;
+  user.lessonsCompleted = lessonsCompleted;
+  users.push(user);
+}
+
+register(
+  "Boris",
+  "boris@gmail.com",
+  "boris123",
+  "Vip+",
+  "Boris#7128",
+  [5, 7, 11]
+);
+
+console.log(users);
+
+/* DOM */
+
+//First way, USE DEFER
+
+console.log(
+  (document.querySelector("#title").innerHTML += "Frontend Simplified")
+);
+
+//Second way for ID
+
+console.log(document.getElementById("title"));
+
+//Change css
+
+function toggleDarkMode() {
+  document.querySelector("body").classList.toggle("dark-theme");
+}
